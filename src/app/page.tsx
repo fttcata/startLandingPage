@@ -1,65 +1,109 @@
-import Image from "next/image";
+import { motion } from "framer-motion";
 
-export default function Home() {
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 22 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="lp-root">
+      <div className="lp-glow lp-glow-a" />
+      <div className="lp-glow lp-glow-b" />
+      <motion.section
+        className="lp-hero"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.p variants={item} className="lp-eyebrow">
+          INVESTING EDUCATION, REIMAGINED
+        </motion.p>
+        <motion.h1 variants={item} className="lp-title">
+          From investment anxiety to investment clarity, one decision at a time.
+        </motion.h1>
+        <motion.p variants={item} className="lp-sub">
+          Learn investing through fast, visual, gamified decisions rooted in
+          real market behavior, financial statements, and macro events.
+        </motion.p>
+        <motion.div variants={item} className="lp-cta-row">
+          <a href="#" className="lp-btn lp-btn-primary">
+            Join Waitlist
+          </a>
+          <a href="#" className="lp-btn lp-btn-secondary">
+            Watch Demo
+          </a>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        className="lp-grid"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <motion.article variants={item} className="lp-card">
+          <h2>Problem</h2>
+          <p>
+            Picture this: someone just won the lottery and now has serious
+            capital to deploy. They want to invest, but every source says
+            something different, the charts are intimidating, and one mistake
+            feels expensive. So they freeze.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </motion.article>
+
+        <motion.article variants={item} className="lp-card">
+          <h2>Solution</h2>
+          <p>
+            Our iOS app teaches investing in a gamified, highly visual format.
+            Short scenario cards, real market context, and fast interactions
+            keep learning engaging in an attention-span economy without
+            sacrificing depth.
+          </p>
+        </motion.article>
+
+        <motion.article variants={item} className="lp-card">
+          <h2>Outcome</h2>
+          <p>
+            The learner builds practical confidence, understands risk and
+            decision-making, and can start investing with an actual plan instead
+            of fear. Not hype, not guessing, just informed action.
+          </p>
+        </motion.article>
+      </motion.section>
+
+      <motion.section
+        className="lp-metrics"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.35 }}
+      >
+        <motion.div variants={item} className="lp-metric">
+          <strong>Gamified</strong>
+          <span>Learning Format</span>
+        </motion.div>
+        <motion.div variants={item} className="lp-metric">
+          <strong>iOS</strong>
+          <span>Primary Platform</span>
+        </motion.div>
+        <motion.div variants={item} className="lp-metric">
+          <strong>Decision-first</strong>
+          <span>Practical Outcome</span>
+        </motion.div>
+      </motion.section>
+    </main>
   );
 }
