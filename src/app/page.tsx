@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 const container = {
@@ -104,6 +106,12 @@ export default function LandingPage() {
           <span>Practical Outcome</span>
         </motion.div>
       </motion.section>
+
+      <footer className="lp-footer">
+        <a className="lp-footer-link" href="/privacy">
+          Privacy Policy
+        </a>
+      </footer>
     </main>
   );
 }

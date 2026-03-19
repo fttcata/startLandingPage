@@ -184,6 +184,24 @@ body {
   font-size: 13px;
 }
 
+.lp-footer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+.lp-footer-link {
+  color: var(--text-dim);
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lp-footer-link:hover,
+.lp-footer-link:focus-visible {
+  color: var(--text-bright);
+  text-decoration: underline;
+}
+
 @media (max-width: 900px) {
   .lp-grid {
     grid-template-columns: 1fr;
