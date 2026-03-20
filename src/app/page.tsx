@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { cubicBezier, motion, type Variants } from "framer-motion";
 
 const container: Variants = {
   hidden: {},
@@ -16,7 +16,7 @@ const item: Variants = {
     y: 0,
     transition: {
       duration: 0.55,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      ease: cubicBezier(0.22, 1, 0.36, 1),
     },
   },
 };
